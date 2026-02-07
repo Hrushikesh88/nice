@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .header .subtitle {
+            font-size: 1.5rem;
+            color: #ffe6f0;
+            font-style: italic;
+        }
+
+        .rose-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .rose-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out backwards;
+        }
+
+        .rose-card:nth-child(1) { animation-delay: 0.2s; }
+        .rose-card:nth-child(2) { animation-delay: 0.4s; }
+        .rose-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .rose-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .rose-emoji {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rose-card h2 {
+            color: #c2185b;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .rose-card p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.8s backwards;
+            margin-bottom: 40px;
+        }
+
+        .message-box h2 {
+            color: #c2185b;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .message-box p {
+            color: #444;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .heart-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .heart {
+            display: inline-block;
+            font-size: 3rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .heart:hover {
+            transform: scale(1.3);
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 10s linear infinite;
+            opacity: 0;
+        }
+
+        .footer {
+            text-align: center;
+            color: #fff;
+            font-size: 1.2rem;
+            margin-top: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeIn 1s ease-out 1s backwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.1); }
+            20%, 40% { transform: scale(1.05); }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            .header .subtitle {
+                font-size: 1.2rem;
+            }
+            .rose-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🌹 Happy Rose Day Bauniii 🌹</h1>
+            <p class="subtitle">To the most beautiful person in my life</p>
+        </div>
+
+        <div class="rose-container">
+            <div class="rose-card">
+                <div class="rose-emoji">🌹</div>
+                <h2>Red Rose</h2>
+                <p>Symbolizing the deep love and passion I have for you every single day</p>
+            </div>
+
+            <div class="rose-card">
+                <div class="rose-emoji">🌷</div>
+                <h2>Pink Rose</h2>
+                <p>Representing the admiration and joy you bring into my world</p>
+            </div>
+
+            <div class="rose-card">
+                <div class="rose-emoji">🌺</div>
+                <h2>White Rose</h2>
+                <p>For the pure and genuine connection we share together</p>
+            </div>
+        </div>
+
+        <div class="message-box">
+            <h2>A Special Message for You, Bauniii 💕</h2>
+            <p>
+                Just like roses bloom with beauty and grace, you've brought color and happiness into my life.
+            </p>
+            <p>
+                Every moment with you feels like a garden in full bloom, filled with laughter, love, and endless possibilities.
+            </p>
+            <p>
+                Thank you for being the most wonderful person I know. You make every day feel special, Bauniii.
+            </p>
+            
+            <div class="heart-container">
+                <span class="heart" onclick="showLove()">❤️</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>With all my love for you, Bauniii - always and forever 💝</p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating rose particles
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            const roses = ['🌹', '🌷', '🌺', '💕', '❤️', '💖'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.textContent = roses[Math.floor(Math.random() * roses.length)];
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDuration = (Math.random() * 5 + 8) + 's';
+                    particle.style.animationDelay = Math.random() * 5 + 's';
+                    particles.appendChild(particle);
+                }, i * 500);
+            }
+        }
+
+        // Show love animation
+        function showLove() {
+            const heart = document.querySelector('.heart');
+            const container = document.querySelector('.heart-container');
+            
+            // Create floating hearts
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const floatingHeart = document.createElement('span');
+                    floatingHeart.textContent = '❤️';
+                    floatingHeart.style.position = 'absolute';
+                    floatingHeart.style.fontSize = '2rem';
+                    floatingHeart.style.left = (Math.random() * 100) + '%';
+                    floatingHeart.style.animation = 'float 3s ease-out forwards';
+                    container.appendChild(floatingHeart);
+                    
+                    setTimeout(() => floatingHeart.remove(), 3000);
+                }, i * 100);
+            }
+        }
+
+        // Add sparkle effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.95) {
+                const sparkle = document.createElement('div');
+                sparkle.textContent = '✨';
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.fontSize = '1.5rem';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.animation = 'fadeIn 0.5s ease-out, float 2s ease-out forwards';
+                sparkle.style.zIndex = '9999';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 2000);
+            }
+        });
+
+        // Initialize particles on load
+        window.addEventListener('load', createParticles);
+
+        // Add click effect to rose cards
+        document.querySelectorAll('.rose-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
